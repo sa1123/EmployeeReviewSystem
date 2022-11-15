@@ -6,13 +6,11 @@ const db = require("./config/mongoose");
 const app = express();
 db();
 
-
 //Use for session
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
-
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,7 +25,7 @@ app.set("views", "./views");
 app.use(
   session({
     name: "EmployeeReviewSystem",
-    secret: process.env.SCERET_KEY,
+    secret: process.env.SECRET_KEY,
     saveUninitialized: false,
     resave: false,
     cookie: {
@@ -47,8 +45,6 @@ app.use(
   })
 );
 
-
-
 // for authentication
 app.use(passport.initialize());
 app.use(passport.session()); 
@@ -58,10 +54,8 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(flashmiddleware.setFlash);
 
-
 //use express router
 app.use('/',require('./routes'));
-
 
 app.listen(port,function(error){
     if (error) {
