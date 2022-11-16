@@ -208,8 +208,8 @@ module.exports.UpdatedUser = async function(req,resp){
 
          user.save();
 
-         req.flash("success", "UPDATE DONE...");
-        console.log("Employee's details are updated successfully...");
+         req.flash("success", "UPDATION DONE");
+        console.log("Employee's details are updated successfully");
 
          return resp.redirect("/admin/employeerecords");
      
@@ -270,8 +270,8 @@ module.exports.deleteEmployee = async function(req,resp){
 
       await User.findByIdAndDelete(id);
 
-      req.flash("error", "DELETE AN EMPLOYEE DONE...");
-      console.log("Employee's are deleted successfully...");
+      req.flash("error", "EMPLOYEE DELETED");
+      console.log("Employee deleted successfully");
 
       return resp.redirect("/admin/employeerecords");
 
@@ -297,15 +297,15 @@ module.exports.makeadmin = async function(req,resp){
 
         if (user.isAdmin == true) {
 
-          req.flash("error", "ALREADY ADMIN POWER ...");
+          req.flash("error", "ALREADY ADMIN");
           return resp.redirect("back");
         } else {
           user.isAdmin = true;
           await user.save();
         }
 
-        req.flash("success", "ADMIN POWER TRANSFER DONE...");
-        console.log("employee make admin successfully...");
+        req.flash("success", "MADE ADMIN");
+        console.log("employee made admin successfully");
         
         return resp.redirect("back");
 
