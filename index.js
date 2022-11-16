@@ -1,7 +1,7 @@
 // IMPORT THE MODULES
 require("dotenv").config();
 const express = require('express');
-const port = 8999;
+const port = process.env.PORT || 8999;
 const db = require("./config/mongoose");
 const app = express();
 db();
