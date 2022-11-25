@@ -9,6 +9,8 @@ Password: admin
 # How to access online
 Visit https://employee-rev-sys-for-cn.herokuapp.com/users/login
 
+Or https://angry-sarong-lion.cyclic.app/
+
 # How to run locally
 
 Clone project to local machine
